@@ -8,14 +8,14 @@
 #define GAMING  3 
 #define SYSTEM  4 
 
-//&mt {
+&mt {
     // We use this for the MEH-key only.
     // Higher timeouts are required to prevent misfiring.
-//    tapping-term-ms = <230>;
-//    quick_tap_ms = <180>;
-//    global-quick-tap;
-//    flavor = "tap-preferred";
-//};
+    tapping-term-ms = <230>;
+    quick_tap_ms = <180>;
+    global-quick-tap;
+    flavor = "tap-preferred";
+};
 
 &sl {
     release-after-ms = <500>;
@@ -26,13 +26,13 @@
         td_shift_a: tap_dance_shift_a {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <150>;
             bindings = <&mt LSHIFT A>, <&sk LSHIFT>;
         };
         td_back_long: tap_dance_backspace_long {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <100>;
             bindings = <&lt NUM BKSP>, <&kp BKSP>;
         };
     };

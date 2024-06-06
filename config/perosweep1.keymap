@@ -12,6 +12,10 @@
     flavor = "balanced";
 };
 
+&lt {
+    quick-tap-ms = <200>;
+};lt
+
 / {
     behaviors {
         lh_tap: layer_hold_tap_hold {
@@ -19,6 +23,7 @@
             #binding-cells = <2>;
             flavor = "balanced";
             tapping-term-ms = <200>;
+            quick-tap-ms = <200>;
             bindings = <&mo>, <&kp>;
         };
         td_shift_a: tap_dance_shift_a {
@@ -26,18 +31,6 @@
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&mt LSHIFT A>, <&sk LSHIFT>;
-        };
-        td_back_long: tap_dance_backspace_long {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&lh_tap NUM BKSP>, <&mt BKSP BKSP>;
-        };
-        td_space_long: tap_dance_space_long {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&lh_tap ARROW SPACE>, <&mt SPACE SPACE>;
         };
     };
 
@@ -51,7 +44,7 @@
         &td_shift_a  &kp S  &kp D  &kp F  &kp G      &kp H  &kp J  &kp K      &kp L    &kp SINGLE_QUOTE 
         &mt LCTRL Z   &kp X  &kp C  &kp V  &kp B      &kp N  &kp M  &kp COMMA  &kp DOT  &kp SLASH
 
-                &td_space_long  &td_back_long      &kp SPACE  &kp LGUI
+                &lh_tap ARROW SPACE  &lt NUM BKSP      &kp SPACE  &kp LGUI
 
         >;
         };

@@ -9,7 +9,8 @@
 #define SYSTEM  4 
 
 &mt {
-    flavor = "balanced";
+    flavor = "balanced";//tap-preferred";
+    quick-tap-ms = <200>;
 };
 
 &lt {
@@ -18,18 +19,11 @@
 
 / {
     behaviors {
-        lh_tap: layer_hold_tap_hold {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <200>;
-            bindings = <&mo>, <&kp>;
-        };
         td_shift_a: tap_dance_shift_a {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
+            quick-tap-ms = <200>;
             bindings = <&mt LSHIFT A>, <&sk LSHIFT>;
         };
     };
@@ -44,7 +38,7 @@
         &td_shift_a  &kp S  &kp D  &kp F  &kp G      &kp H  &kp J  &kp K      &kp L    &kp SINGLE_QUOTE 
         &mt LCTRL Z   &kp X  &kp C  &kp V  &kp B      &kp N  &kp M  &kp COMMA  &kp DOT  &kp SLASH
 
-                &lh_tap ARROW SPACE  &lt NUM BKSP      &kp SPACE  &kp LGUI
+                &lt ARROW SPACE  &lt NUM BKSP      &kp SPACE  &kp LGUI
 
         >;
         };

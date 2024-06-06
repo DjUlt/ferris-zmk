@@ -27,11 +27,11 @@
         };
         htd_kp_shift_a: hold_td_kp_shift_a {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <0>;
+            #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <200>;
-            bindings = <&kp LSHIFT>, <&td_shift_a>;
+            bindings = <&kp>, <&td_shift_a>;
         };
     };
 
@@ -42,7 +42,7 @@
         bindings = <
 
         &mt LALT Q    &kp W  &kp E  &kp R  &kp T      &kp Y  &kp U  &kp I      &kp O    &kp P
-        &htd_kp_shift_a  &kp S  &kp D  &kp F  &kp G      &kp H  &kp J  &kp K      &kp L    &kp SINGLE_QUOTE 
+        &htd_kp_shift_a LSHIFT 0  &kp S  &kp D  &kp F  &kp G      &kp H  &kp J  &kp K      &kp L    &kp SINGLE_QUOTE 
         &mt LCTRL Z   &kp X  &kp C  &kp V  &kp B      &kp N  &kp M  &kp COMMA  &kp DOT  &kp SLASH
 
                 &lt ARROW SPACE  &lt NUM BKSP      &kp SPACE  &kp LGUI

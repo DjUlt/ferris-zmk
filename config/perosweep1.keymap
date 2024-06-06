@@ -8,14 +8,14 @@
 #define GAMING  3 
 #define SYSTEM  4 
 
-&mt {
+//&mt {
     // We use this for the MEH-key only.
     // Higher timeouts are required to prevent misfiring.
-    tapping-term-ms = <230>;
-    quick_tap_ms = <180>;
-    global-quick-tap;
-    flavor = "tap-preferred";
-};
+//    tapping-term-ms = <230>;
+//    quick_tap_ms = <180>;
+//    global-quick-tap;
+//    flavor = "tap-preferred";
+//};
 
 &sl {
     release-after-ms = <500>;
@@ -23,25 +23,17 @@
 
 / {
     behaviors {
-        lm: home_row_left {
-            compatible = "zmk,behavior-hold-tap";
-            label = "home_row_left";
-            #binding-cells = <2>;
-            tapping-term-ms = <220>;
-            quick_tap_ms = <180>;
-            flavor = "balanced";
-            bindings = <&kp>, <&kp>;
-            hold-trigger-key-positions = <5 6 7 8 9 15 16 17 18 19 25 26 27 28 29 32 33>;
+        shift_a: tap_dance_mod_tap {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&mt LSHIFT A>, <&sk LSHIFT>;
         };
-        rm: home_row_right {
-            compatible = "zmk,behavior-hold-tap";
-            label = "home_row_right";
-            #binding-cells = <2>;
-            tapping-term-ms = <220>;
-            quick_tap_ms = <180>;
-            flavor = "balanced";
-            bindings = <&kp>, <&kp>;
-            hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 20 21 22 23 24 30 31>;
+        backspace_qmk: tap_dance_mod_tap {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&lt NUM BKSP>, <&kp BKSP>;
         };
     };
 
@@ -51,11 +43,11 @@
         alpha {
         bindings = <
 
-        &kp Q         &kp W  &kp E  &kp R  &kp T      &kp Y  &kp U  &kp I      &kp O    &kp P
-        &mt LSHIFT A  &kp S  &kp D  &kp F  &kp G      &kp H  &kp J  &kp K      &kp L    &kp SINGLE_QUOTE 
-        &mt LCTRL Z   &kp X  &kp C  &kp V  &kp B      &kp N  &kp M  &kp COMMA  &kp DOT  &kp Z
+        &mt LALT Q   &kp W  &kp E  &kp R  &kp T      &kp Y  &kp U  &kp I      &kp O    &kp P
+        &shift_a     &kp S  &kp D  &kp F  &kp G      &kp H  &kp J  &kp K      &kp L    &kp SINGLE_QUOTE 
+        &mt LCTRL Z  &kp X  &kp C  &kp V  &kp B      &kp N  &kp M  &kp COMMA  &kp DOT  &kp SLASH
 
-                   &lt ARROW SPACE  &lt NUM BKSP      &kp SPACE  &kp LGUI
+                   &lt ARROW SPACE  &backspace_qmk      &kp SPACE  &kp LGUI
 
         >;
         };
@@ -75,7 +67,7 @@
         bindings = <
 // add lang change
         &kp ESC  &none      &sl SYSTEM  &kp LG(R)  &none             &kp C_VOL_DN  &kp C_VOL_UP  &kp C_MUTE  &none  &none
-        &trans   &kp LG(Z)  &kp LG(C)   &kp LG(V)  &kp LG(C)         &none         &none         &none       &none  &none  
+        &trans   &kp LG(Z)  &kp LG(C)   &kp LG(V)  &kp LG(S)         &none         &none         &none       &none  &none  
         &none    &none      &kp LG(X)   &kp LG(F)  &kp LG(A)         &none         &none         &none       &none  &none
 
                                               &none  &trans         &trans      &sl SYSTEM
@@ -85,9 +77,9 @@
         gaming {
         bindings = <
 
-        &kp N1      &kp N2  &kp N3  &kp R  &kp N4     &kp ESC  &kp TAB  &kp N  &kp T  &tog GAMING 
-        &kp LSHIFT  &kp Q   &kp W   &kp E  &kp F      &kp H    &kp J    &kp K  &kp L  &kp B  
-        &kp LCTRL   &kp A   &kp S   &kp D  &kp G      &kp Z    &kp X    &kp C  &kp V  &kp M  
+        &kp TAB     &kp N1  &kp N2  &kp R  &kp N3     &kp ESC  &kp N    &kp T  &kp Y  &tog GAMING 
+        &kp LCTRL   &kp Q   &kp W   &kp E  &kp F      &kp H    &kp J    &kp K  &kp L  &kp B  
+        &kp LSHIFT  &kp A   &kp S   &kp D  &kp G      &kp Z    &kp X    &kp C  &kp V  &kp M  
 // add spam button if possible
 // add mmo and fKeys layer
                             &kp LCTRL  &kp SPACE      &none  &kp LALT
@@ -99,7 +91,7 @@
 
         &sys_reset   &none  &none  &none      &bt BT_SEL 0    &bt BT_SEL 3  &none  &none  &none  &sys_reset
         &bootloader  &none  &none  &none      &bt BT_SEL 1    &bt BT_SEL 4  &none  &none  &none  &bootloader
-        &none        &none  &none  &bt BT_CLR &bt BT_SEL 2    &none  &none  &none  &none  &none
+        &none        &none  &none  &bt BT_CLR &bt BT_SEL 2    &none         &none  &none  &none  &none
 
                                               &none  &none    &none  &none
         >;

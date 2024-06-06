@@ -21,18 +21,24 @@
             tapping-term-ms = <200>;
             bindings = <&mo>, <&kp>;
         };
-//        td_shift_a: tap_dance_shift_a {
-//            compatible = "zmk,behavior-tap-dance";
-  //          #binding-cells = <0>;
-    //        tapping-term-ms = <150>;
-    //        bindings = <&mt LSHIFT A>, <&sk LSHIFT>;
-     //   };
-      //  td_back_long: tap_dance_backspace_long {
-       //     compatible = "zmk,behavior-tap-dance";
-        //    #binding-cells = <0>;
-         //   tapping-term-ms = <150>;
-          //  bindings = <&lt NUM BKSP>, <&kp BKSP>;
-        //};
+        td_shift_a: tap_dance_shift_a {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&mt LSHIFT A>, <&sk LSHIFT>;
+        };
+        td_back_long: tap_dance_backspace_long {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&lh_tap NUM BKSP>, <&mt BKSP BKSP>;
+        };
+        td_space_long: tap_dance_space_long {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&lh_tap ARROW SPACE>, <&mt SPACE SPACE>;
+        };
     };
 
     keymap {
@@ -42,10 +48,10 @@
         bindings = <
 
         &mt LALT Q    &kp W  &kp E  &kp R  &kp T      &kp Y  &kp U  &kp I      &kp O    &kp P
-        &mt LSHIFT A  &kp S  &kp D  &kp F  &kp G      &kp H  &kp J  &kp K      &kp L    &kp SINGLE_QUOTE 
+        &td_shift_a  &kp S  &kp D  &kp F  &kp G      &kp H  &kp J  &kp K      &kp L    &kp SINGLE_QUOTE 
         &mt LCTRL Z   &kp X  &kp C  &kp V  &kp B      &kp N  &kp M  &kp COMMA  &kp DOT  &kp SLASH
 
-                &lh_tap ARROW SPACE  &lh_tap NUM BKSP      &kp SPACE  &kp LGUI
+                &td_space_long  &td_back_long      &kp SPACE  &kp LGUI
 
         >;
         };

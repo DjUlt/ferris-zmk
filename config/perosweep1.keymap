@@ -9,8 +9,7 @@
 #define SYSTEM  4 
 
 &mt {
-    flavor = "balanced";//tap-preferred";
-    quick-tap-ms = <200>;
+    flavor = "tap-preferred";
 };
 
 &lt {

@@ -12,12 +12,15 @@
     flavor = "balanced";
 };
 
-&lt {
-    retro-tap;
-};
-
 / {
     behaviors {
+        lh_tap: layer_hold_tap_hold {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <200>;
+            bindings = <&mo>, <&kp>;
+        };
 //        td_shift_a: tap_dance_shift_a {
 //            compatible = "zmk,behavior-tap-dance";
   //          #binding-cells = <0>;
@@ -38,11 +41,11 @@
         alpha {
         bindings = <
 
-        &mt LALT Q   &kp W  &kp E  &kp R  &kp T      &kp Y  &kp U  &kp I      &kp O    &kp P
-        &mt LSHIFT A     &kp S  &kp D  &kp F  &kp G      &kp H  &kp J  &kp K      &kp L    &kp SINGLE_QUOTE 
-        &mt LCTRL Z  &kp X  &kp C  &kp V  &kp B      &kp N  &kp M  &kp COMMA  &kp DOT  &kp SLASH
+        &mt LALT Q    &kp W  &kp E  &kp R  &kp T      &kp Y  &kp U  &kp I      &kp O    &kp P
+        &mt LSHIFT A  &kp S  &kp D  &kp F  &kp G      &kp H  &kp J  &kp K      &kp L    &kp SINGLE_QUOTE 
+        &mt LCTRL Z   &kp X  &kp C  &kp V  &kp B      &kp N  &kp M  &kp COMMA  &kp DOT  &kp SLASH
 
-                &lt ARROW SPACE  &lt NUM BKSP      &kp SPACE  &kp LGUI
+                &lh_tap ARROW SPACE  &lh_tap NUM BKSP      &kp SPACE  &kp LGUI
 
         >;
         };
@@ -54,18 +57,18 @@
         &trans    &kp LC(LEFT)  &kp UP    &kp LC(RIGHT)  &kp ESC              &kp MINUS  &kp EQUAL      &kp LBKT       &kp RBKT   &tog GAMING
         &trans    &kp LEFT      &kp DOWN  &kp RIGHT      &kp TAB              &kp GRAVE  &kp SEMICOLON  &kp BACKSLASH  &kp SLASH  &kp ENTER
 
-                                              &kp LC(UP)  &trans              &kp DEL  &none
+                                              &kp LC(UP)  &kp BKSP              &kp DEL  &none
         >;
         };
 
         arrow_and_signs {
         bindings = <
 // add lang change
-        &kp ESC  &none      &sl SYSTEM  &kp LG(R)  &none             &kp C_VOL_DN  &kp C_VOL_UP  &kp C_MUTE  &none  &none
+        &kp ESC  &none      &mo SYSTEM  &kp LG(R)  &none             &kp C_VOL_DN  &kp C_VOL_UP  &kp C_MUTE  &none  &none
         &trans   &kp LG(Z)  &kp LG(C)   &kp LG(V)  &kp LG(S)         &none         &none         &none       &none  &none  
         &none    &none      &kp LG(X)   &kp LG(F)  &kp LG(A)         &none         &none         &none       &none  &none
 
-                                              &none  &trans         &trans      &sl SYSTEM
+                                              &none  &trans         &trans      &mo SYSTEM
         >;
         };
 

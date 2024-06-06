@@ -8,9 +8,12 @@
 #define GAMING  3 
 #define SYSTEM  4 
 
+&mt {
+    flavor = "balanced";
+};
 
-&sl {
-    release-after-ms = <500>;
+&lt {
+    retro-tap;
 };
 
 / {

@@ -29,7 +29,7 @@
             tapping-term-ms = <200>;
             bindings = <&mt LSHIFT A>, <&sk LSHIFT>;
         };
-        backspace_qmk: tap_dance_mod_tap {
+        backspace_long: tap_dance_mod_tap {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
@@ -47,7 +47,7 @@
         &shift_a     &kp S  &kp D  &kp F  &kp G      &kp H  &kp J  &kp K      &kp L    &kp SINGLE_QUOTE 
         &mt LCTRL Z  &kp X  &kp C  &kp V  &kp B      &kp N  &kp M  &kp COMMA  &kp DOT  &kp SLASH
 
-                   &lt ARROW SPACE  &backspace_qmk      &kp SPACE  &kp LGUI
+                &lt ARROW SPACE  &backspace_long      &kp SPACE  &kp LGUI
 
         >;
         };

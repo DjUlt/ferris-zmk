@@ -20,45 +20,11 @@
 
 / {
     behaviors {
-        td_shift_d: tap_dance_shift_d {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp D>, <&sk LSHIFT>;
-        };
-        htd_kp_shift_d: hold_td_kp_shift_d {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <200>;
-            bindings = <&kp>, <&td_shift_d>;
-        };
-        td_shift_k: tap_dance_shift_k {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp K>, <&sk LSHIFT>;
-        };
-        htd_kp_shift_k: hold_td_kp_shift_k {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <200>;
-            bindings = <&kp>, <&td_shift_k>;
-        };
         td_caps_g: tap_dance_caps_g {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&kp G>, <&kp CAPS>;
-        };
-        td_caps_h: tap_dance_caps_h {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp H>, <&kp CAPS>;
         };
     };
 
@@ -68,11 +34,11 @@
         alpha {
         bindings = <
 
-        &mt LALT Q     &kp W          &kp E                      &kp R       &kp T          &kp Y       &kp U       &kp I                        &kp O         &kp P
-        &mt LGUI A     &mt LALT S     &htd_kp_shift_d LSHIFT 0   &mt LCTRL F &td_caps_g     &td_caps_h  &mt LCTRL J &htd_kp_shift_k LSHIFT 0     &mt LALT L    &mt LGUI SINGLE_QUOTE 
-        &mt LCTRL Z    &kp X          &kp C                      &kp V       &kp B          &kp N       &kp M       &kp COMMA                    &kp DOT       &kp SLASH
+        &kp Q        &kp W        &kp E          &kp R         &kp T                  &kp Y   &kp U         &kp I          &kp O        &kp P
+        &mt LGUI A   &mt LALT S   &mt LSHIFT D   &mt LCTRL F   &kp G                  &kp H   &mt LCTRL J   &mt LSHIFT K   &mt LALT L   &mt LGUI SINGLE_QUOTE 
+        &kp Z        &kp X        &kp C          &kp V         &kp B                  &kp N   &kp M         &kp COMMA      &kp DOT      &kp SLASH
 
-                                                    &lt ARROW SPACE  &lt NUM BKSP           &kp SPACE  &kp LGUI
+                                                 &lt ARROW SPACE  &lt NUM BKSP        &kp SPACE  &kp LGUI
 
         >;
         };
@@ -102,7 +68,7 @@
         gaming {
         bindings = <
 
-        &kp TAB     &kp N1  &kp N2  &kp R  &kp N3     &kp ESC  &kp N    &kp T  &kp Y  &tog GAMING 
+        &kp TAB     &kp N1  &kp N2  &kp R  &kp N3     &kp ESC  &kp I    &kp T  &kp Y  &tog GAMING 
         &kp LCTRL   &kp Q   &kp W   &kp E  &kp F      &kp H    &kp J    &kp K  &kp L  &kp B  
         &kp LSHIFT  &kp A   &kp S   &kp D  &kp G      &kp Z    &kp X    &kp C  &kp V  &kp M  
 // add spam button if possible
@@ -115,8 +81,8 @@
         bindings = <
 
         &kp F1     &kp F2  &kp F3  &kp F4  &kp F5     &kp F6  &kp F7    &kp F8  &kp F9  &kp F10 
-        &kp LCTRL   &kp Q   &kp W   &kp E  &kp F      &kp H    &kp J    &kp K  &kp L  &kp B  
-        &kp LSHIFT  &kp A   &kp S   &kp D  &kp G      &kp Z    &kp X    &kp C  &kp V  &kp M  
+        &kp LCTRL   &kp Q   &kp W   &kp E  &kp F      &kp 1    &kp 2    &kp 3  &kp 4  &kp 5  
+        &kp LSHIFT  &kp A   &kp S   &kp D  &kp G      &kp 6    &kp 7    &kp 8  &kp 9  &kp 0  
 // add spam button if possible
 // add mmo and fKeys layer
                             &kp LCTRL  &kp SPACE      &none  &kp LALT
